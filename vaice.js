@@ -3,9 +3,11 @@ globalThis.vaice = {
 
     },
     set: function (key, value) {
+        console.log(key, value);
         this.state[key] = value;
     },
     get: function (key) {
+        console.log(key);
         return this.state[key];
     },
     dispatch: function (doc, component) {

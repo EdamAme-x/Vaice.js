@@ -16,7 +16,7 @@
         const counter = () => {
             vaice.set("count", 0); // globalThis.vaice.state.count = 
 
-            function decrement() {
+            const decrement = () => {
                 return vaice.set("count", vaice.get("count") - 1);
             }
 
