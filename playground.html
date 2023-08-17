@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaice</title>
+</head>
+
+<body>
+    <div id="counter">
+
+    </div>
+    <script src="vaice.js"></script>
+    <script>
+        const counter = () => {
+            vaice.set("count", 0); // globalThis.vaice.state.count = 
+
+            function decrement() {
+                return vaice.set("count", vaice.get("count") - 1);
+            }
+
+            return (div(
+                { class: "counter" },
+                h1(
+                    { class: "title" },
+                    a(
+                        { href: "https://github.com/EdamAme-x/Vaice.js" },
+                        vaice.get("count")
+                    ),
+                    button(
+                        { class: "increment", onclick: (() => vaice.set("count", vaice.get("count") + 1)) },
+                        "+"
+                    ),
+                    button(
+                        { class: "decrement", onclick: decrement },
+                        "-"
+                    )
+                )
+            ))
+        }
+
+        vaice.dispatch(document.getElementById("counter"), counter);
+    </script>
+</body>
+
+</html>
